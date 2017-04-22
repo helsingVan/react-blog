@@ -3,7 +3,7 @@
     <img src="./assets/logo.png">
     <router-view></router-view>
     <!-- <div class="error">test</div> -->
-    <nav>
+    <nav class="van-fixnav">
       <router-link to="/movie">电影</router-link>
       <router-link to="/music">音乐</router-link>
       <router-link to="/book">图书</router-link>
@@ -30,5 +30,9 @@ $red: red;
 .error {
   color: $red;
 }
-
+.nav-fixnav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 </style>
