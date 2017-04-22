@@ -35,4 +35,7 @@ $red: red;
   bottom: 0;
   left: 0;
 }
+.nav-fixnav {
+  color: $red;
+}
 </style>
