@@ -31,11 +31,12 @@ $red: red;
   color: $red;
 }
 .nav-fixnav {
-  position: fixed;
+  position: fixed; 
   bottom: 0;
   left: 0;
 }
 .nav-fixnav {
   color: $red;
+  font-size: 18px;
 }
 </style>
