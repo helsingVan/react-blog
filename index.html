@@ -13,4 +13,23 @@
 
     <!-- built files will be auto injected -->
   </body>
+
+  <script>
+  var data;
+    function callJson(res) {
+      try {
+        if(res) {
+          data = res;
+        }else {
+          return 'error';
+        }
+      }catch(e) {
+        console.log(e);
+      }
+    }
+    callJson.prototype.then = function(callback) {
+      var _this = this;
+      callback(_this.res);
+    }
+  </script>
 </html>

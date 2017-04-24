@@ -21,13 +21,23 @@
 </template>
 
 <script>
+import {jsonp} from './assets/js/jsonp'
 export default {
-  name: 'app'
+  name: 'app',
+  created: function() {
+    this.load()
+  },
+  methods: {
+    load: function() {
+      jsonp('https://api.douban.com/v2/book/1220562');
+      console.log(data);
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-
+$activeColor: #24BDFF;
 .van-fixnav {
   position: fixed;
   left: 0;
@@ -46,7 +56,7 @@ export default {
     }
   }
   a.active {
-    color: #24BDFF;
+    color: $activeColor;
   }
   .fa {
     font-size: 1.5rem;
