@@ -31,6 +31,7 @@ export default {
     load: function() {
       jsonp('https://api.douban.com/v2/movie/subject/1764796');
       console.log(data);
+      console.log('text');
     }
   }
 }
