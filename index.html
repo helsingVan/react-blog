@@ -15,11 +15,13 @@
   </body>
 
   <script>
-  var data;
+  
     function callJson(res) {
       try {
         if(res) {
-          data = res;
+          console.log(res);
+          return res;
+
         }else {
           return 'error';
         }

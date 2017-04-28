@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     load: function() {
-      jsonp('https://api.douban.com/v2/book/1220562');
+      jsonp('https://api.douban.com/v2/movie/subject/1764796');
       console.log(data);
     }
   }
