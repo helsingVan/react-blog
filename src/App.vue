@@ -29,23 +29,15 @@ export default {
   },
   methods: {
     load: function() {
-      // jsonp('https://api.douban.com/v2/movie/subject/1764796');
-      // console.log(data);
-      this.$http({
-        type: 'GET',
-        url: 'https://api.douban.com/v2/movie/subject/1764796',
-        dataType: 'jsonp',
-        success: function(res) {
-          console.log(res);
-        }
-      })
+      
     }
   }
 }
 </script>
 
 <style lang="scss">
-$activeColor: #24BDFF;
+@import './assets/scss/common.scss';
+
 .van-fixnav {
   position: fixed;
   left: 0;
