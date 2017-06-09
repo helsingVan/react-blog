@@ -5,6 +5,12 @@
 	<div class="wrapper">
 	  <show-list title="影院热映" :content="hotMovie.subjects"></show-list>
 	</div>
+	<div class="wrapper">
+	  <show-list title="海外票房榜" :content="piaoFangList"></show-list>
+	</div>
+	<div class="wrapper">
+	  <show-list title="即将热映" :content="futureMovie.subjects"></show-list>
+	</div>
   </div>
 </template>
 
@@ -19,9 +25,12 @@ export default {
   data() {
     return {
 			title: '电影',
-			hotMovie: {},
-			carousel: [],
-			showList: null
+			hotMovie: {},         // 影院热映
+			piaoFang: {},         // 票房榜
+			futureMovie: {},       // 即将上映
+			carousel: [],         // 轮播图数据
+			piaoFangList: [],     // 票房榜处理后数据
+			
 		}
   },
   computed: {
@@ -33,7 +42,9 @@ export default {
   watch: {
   	hotMovie() {
       this.getCarousel();
-      this.getShowList();
+  	},
+  	piaoFang() {
+  	  this.getPiaoFang();
   	}
   },
   methods: {
@@ -45,8 +56,23 @@ export default {
 		dataType: 'jsonp',
 		success: function(data) {
 				_this.hotMovie = data;
-				console.log(_this.hotMovie);
 			}
+	  });
+	  this.$http({
+	  	type: 'GET',
+	  	url: 'https://api.douban.com/v2/movie/us_box',
+	  	dataType: 'jsonp',
+	  	success: function(data) {
+          _this.piaoFang = data;
+	  	}
+	  });
+	  this.$http({
+	  	type: 'GET',
+	  	url: 'https://api.douban.com/v2/movie/coming_soon',
+	  	dataType: 'jsonp',
+	  	success: function(data) {
+          _this.futureMovie = data;
+	  	}
 	  });
 	},
 	getCarousel() {
@@ -58,17 +84,14 @@ export default {
 			}
 		this.carousel = content;
 	},
-	getShowList() {
+	getPiaoFang() {
 	  let _this = this;
-      let content = [];
-      let subjects = this.hotMovie.subjects;
-
-      for(let i=0;i<subjects.length;i+=3) {
-      	content.push([subjects[i],
-      		subjects[i+1]?subjects[i+1]:null,subjects[i+2]?subjects[i+2]:null]);
-      }
-      this.showList = content;
-      console.log(this.showList);
+	  let piaoFang = _this.piaoFang.subjects;
+	  let content = [];
+	  piaoFang.forEach((v)=>{
+        content.push(v.subject);
+	  });
+      _this.piaoFangList = content;
 	}
   }
 }

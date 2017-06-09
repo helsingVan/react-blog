@@ -2,12 +2,17 @@
 <div class="show-container">
   <header class="header clearfix">
   	<h2>{{title}}</h2>
-  	<a href="##" class="fa fa-right">更多</a>
+  	<a href="##">
+  	  更多
+  	  <i class="fa fa-chevron-circle-right"></i>
+  	</a>
   </header>
   <div class="swiper-container" ref="swiper">
   	<ul class="swiper-wrapper">
   	  <li class="swiper-slide" v-for="list in content">
   	  	<img :src="list.images.medium">
+  	  	<p class="title">{{list.title}}</p>
+  	  	<Star :rating="list.rating"></Star>
   	  </li>
   	</ul>
   </div>
@@ -15,22 +20,15 @@
 </template>
 
 <script>
+import Star from '../star/star';
+
 export default {
   name: 'showList',
+  components: { Star },
   props: {
   	title: {},
   	content: {
   	  type: Array,
-  	}
-  },
-  filters: {
-  	noData(v) {
-  		console.log(v);
-  		if(v == null) {
-           return null;
-  		}else {
-  			return v;
-  		}
   	}
   },
   watch: {
@@ -57,11 +55,13 @@ export default {
 @import "../../assets/scss/common.scss";
 
 .show-container {
-  padding: 2rem 1.1rem;
+  padding: 1rem 0 2rem 0;
   background: #fff;
   .header {
   	height: 3rem;
   	line-height: 3rem;
+  	padding: 0 1rem;
+  	margin-bottom: .5rem;
   	h2 {
   	  float: left;
   	  font-size: 1.4rem;
@@ -76,6 +76,15 @@ export default {
   	img {
   	  width: 10rem;
   	  height: 14rem;
+  	}
+  	.swiper-wrapper {
+  	  padding: 0 1rem;
+  	}
+  	.title {
+  	  white-space: nowrap;
+  	  overflow: hidden;
+  	  text-overflow: ellipsis;
+  	  margin: .5rem 0;
   	}
   }
 }

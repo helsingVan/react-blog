@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     
-    <router-view></router-view>
     <!-- <div class="error">test</div> -->
     <nav class="van-fixnav">
       <router-link to="/movie">
@@ -47,6 +49,8 @@ export default {
   width: 100%;
   height: 4rem;
   border-top: 1px solid #ddd;
+  background: #fff;
+  z-index: 100;
   a {
     flex:1;
     text-align: center;
