@@ -2,7 +2,7 @@
 <div class="show-container">
   <header class="header clearfix">
   	<h2>{{title}}</h2>
-  	<a href="##">
+  	<a href="##" @click="getMore">
   	  更多
   	  <i class="fa fa-chevron-circle-right"></i>
   	</a>
@@ -27,6 +27,7 @@ export default {
   components: { Star },
   props: {
   	title: {},
+  	type: {},
   	content: {
   	  type: Array,
   	}
@@ -34,7 +35,7 @@ export default {
   watch: {
   	content() {
   	  this.init();
-  	  // console.log(this.content);
+  	  console.log(this.content);
   	}
   },
   methods: {
@@ -46,6 +47,10 @@ export default {
   	  	  slidesPerView : 3
   	  	});
   	  })
+  	},
+  	getMore() {
+      console.log(this.type);
+      this.$emit('getMore');
   	}
   }
 }

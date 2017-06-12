@@ -3,14 +3,17 @@
     <top-bar :title="title"></top-bar>
 	<Carousel :content="carousel"></Carousel>
 	<div class="wrapper">
-	  <show-list title="影院热映" :content="hotMovie.subjects"></show-list>
+	  <show-list title="影院热映" :content="hotMovieList" @getMore="checkMore(1)"></show-list>
 	</div>
 	<div class="wrapper">
-	  <show-list title="海外票房榜" :content="piaoFangList"></show-list>
+	  <show-list title="海外票房榜" :content="piaoFangList" @getMore="checkMore(2)"></show-list>
 	</div>
 	<div class="wrapper">
-	  <show-list title="即将热映" :content="futureMovie.subjects"></show-list>
+	  <show-list title="即将热映" :content="futureMovieList" @getMore="checkMore(3)"></show-list>
 	</div>
+
+
+	<more-list ref="more"></more-list>
   </div>
 </template>
 
@@ -18,18 +21,22 @@
 import topBar from '../topBar/topbar';
 import Carousel from '../carousel/carousel';
 import showList from '../showList/show-list';
+import moreList from '../showList/more-list';
 
+const listLength = 5;
 export default {
   name: 'movie',
-  components: { topBar,Carousel,showList },
+  components: { topBar,Carousel,showList,moreList },
   data() {
     return {
 			title: '电影',
-			hotMovie: {},         // 影院热映
-			piaoFang: {},         // 票房榜
-			futureMovie: {},       // 即将上映
+			hotMovie: {},         // 影院热映 全部
+			piaoFang: {},         // 票房榜 全部
+			futureMovie: {},      // 即将上映 全部
 			carousel: [],         // 轮播图数据
-			piaoFangList: [],     // 票房榜处理后数据
+			piaoFangList: [],     // 票房榜展示数据（截取部分）
+			hotMovieList: [],     // 影院热映展示数据（截取部分）
+			futureMovieList: [],  // 即将上映展示数据（截取部分）
 			
 		}
   },
@@ -44,7 +51,7 @@ export default {
       this.getCarousel();
   	},
   	piaoFang() {
-  	  this.getPiaoFang();
+  	  this.getPiaoFangList();
   	}
   },
   methods: {
@@ -56,6 +63,8 @@ export default {
 		dataType: 'jsonp',
 		success: function(data) {
 				_this.hotMovie = data;
+				// console.log(data);
+				_this.hotMovieList = data.subjects.slice(0,listLength);
 			}
 	  });
 	  this.$http({
@@ -64,6 +73,7 @@ export default {
 	  	dataType: 'jsonp',
 	  	success: function(data) {
           _this.piaoFang = data;
+          // console.log(data);
 	  	}
 	  });
 	  this.$http({
@@ -72,6 +82,7 @@ export default {
 	  	dataType: 'jsonp',
 	  	success: function(data) {
           _this.futureMovie = data;
+          _this.futureMovieList = data.subjects.slice(0,listLength);
 	  	}
 	  });
 	},
@@ -84,14 +95,18 @@ export default {
 			}
 		this.carousel = content;
 	},
-	getPiaoFang() {
+	getPiaoFangList() {
 	  let _this = this;
 	  let piaoFang = _this.piaoFang.subjects;
 	  let content = [];
 	  piaoFang.forEach((v)=>{
         content.push(v.subject);
 	  });
-      _this.piaoFangList = content;
+      _this.piaoFangList = content.slice(0,listLength);
+	},
+    checkMore(type) {
+	  this.$refs.more.show();
+	  console.log(this.$refs.more);
 	}
   }
 }

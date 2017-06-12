@@ -8,3 +8,11 @@ $activeColor: #24BDFF;
     margin-top: 1rem;
   }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .5s ease;
+}
+.fade-enter {
+  transform: translateX(100%);
+}
