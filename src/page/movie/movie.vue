@@ -1,15 +1,15 @@
 <template>
   <div class="main">
-    <top-bar :title="title"></top-bar>
+    <top-bar :title="title" key="moreTop"></top-bar>
 	<Carousel :content="carousel"></Carousel>
 	<div class="wrapper">
-	  <show-list title="影院热映" :content="hotMovieList" @getMore="checkMore(1)"></show-list>
+	  <show-list title="影院热映" :content="hotMovieList"></show-list>
 	</div>
 	<div class="wrapper">
-	  <show-list title="海外票房榜" :content="piaoFangList" @getMore="checkMore(2)"></show-list>
+	  <show-list title="海外票房榜" :content="piaoFangList"></show-list>
 	</div>
 	<div class="wrapper">
-	  <show-list title="即将热映" :content="futureMovieList" @getMore="checkMore(3)"></show-list>
+	  <show-list title="即将热映" :content="futureMovieList"></show-list>
 	</div>
 	<main-nav></main-nav>
   </div>

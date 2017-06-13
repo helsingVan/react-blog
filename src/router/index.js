@@ -6,7 +6,7 @@ import jquery from 'jquery'
 import Movie from '@/page/movie/movie'
 import Music from '@/page/music/music'
 import Book from '@/page/book/book'
-
+import MovieMore from '@/page/movie/movie-more'
 
 
 Vue.use(Router)
@@ -16,11 +16,18 @@ Vue.prototype.$http = jquery.ajax;
 const routes = [
 	{
 		path: '/',
-		component: Movie
+		redirect: 'movie'
 	},
 	{
 		path: '/movie',
+		name: 'movie',
 		component: Movie
+		// children: [
+		// 	{
+		// 		path: 'more',
+		// 		component: MovieMore
+		// 	}
+		// ]
 	},
 	{
 		path: '/music',
@@ -29,6 +36,10 @@ const routes = [
 	{
 		path: '/book',
 		component: Book
+	},
+	{
+		path: '/movie/more',
+		component: MovieMore
 	}
 ]
 

@@ -2,10 +2,10 @@
 <div class="show-container">
   <header class="header clearfix">
   	<h2>{{title}}</h2>
-  	<a href="##" @click="getMore">
+  	<router-link href="##" to="/movie/more">
   	  更多
   	  <i class="fa fa-chevron-circle-right"></i>
-  	</a>
+  	</router-link>
   </header>
   <div class="swiper-container" ref="swiper">
   	<ul class="swiper-wrapper">
