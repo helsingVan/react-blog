@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import Axios from 'axios'
 import '@/assets/js/jsonp'
 import jquery from 'jquery'
-import Movie from '@/components/movie/movie'
-import Music from '@/components/music/music'
-import Book from '@/components/book/book'
+import Movie from '@/page/movie/movie'
+import Music from '@/page/music/music'
+import Book from '@/page/book/book'
 
 
 
@@ -27,7 +27,7 @@ const routes = [
 		component: Music
 	},
 	{
-		path: '/Book',
+		path: '/book',
 		component: Book
 	}
 ]

@@ -1,12 +1,6 @@
 <template>
-  <div id="app">
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
-    
-    <!-- <div class="error">test</div> -->
-    <!-- <nav class="van-fixnav">
-      <router-link to="/movie">
+  	<nav class="van-fixnav">
+  	  <router-link to="/movie">
         <i class="fa fa-film"></i>
         <p>电影</p>
       </router-link>
@@ -18,27 +12,17 @@
         <i class="fa fa-book"></i>
         <p>图书</p>
       </router-link>
-    </nav> -->
-  </div>
+  	</nav>
 </template>
 
 <script>
-import {jsonp} from './assets/js/jsonp'
 export default {
-  name: 'app',
-  created: function() {
-    this.load()
-  },
-  methods: {
-    load: function() {
-      
-    }
-  }
+  name: 'main-nav'
 }
 </script>
 
 <style lang="scss">
-@import './assets/scss/common.scss';
+@import '../../assets/scss/common.scss';
 
 .van-fixnav {
   position: fixed;
@@ -66,5 +50,4 @@ export default {
     font-size: 1.5rem;
   }
 }
-
 </style>
