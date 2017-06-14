@@ -17,7 +17,7 @@ export default {
   components: { topBar },
   data() {
   	return {
-  	  // title: '全部电影推荐'
+  	  // title: '全部电影推荐1'
   	}
   },
   computed: {
