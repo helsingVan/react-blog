@@ -7,7 +7,9 @@ import Movie from '@/page/movie/movie'
 import Music from '@/page/music/music'
 import Book from '@/page/book/book'
 import MovieMore from '@/page/movie/movie-more'
-
+import HotMovie from '@/page/movie/children/hotmovie'
+import Future from '@/page/movie/children/future'
+import PiaoFang from '@/page/movie/children/piaofang'
 
 Vue.use(Router)
 // Vue.prototype.$http = Axios;
@@ -39,9 +41,15 @@ const routes = [
 	},
 	{
 		path: '/movie/more',
-		component: MovieMore
+		component: MovieMore,
+    children: [
+      { path: '',redirect: 'hotMovie' },
+      { path: 'hotmovie',name:'hotMovie',component: HotMovie },
+      { path: 'future',component: Future },
+      { path: 'piaofang',component: PiaoFang }
+    ]
 	}
-]
+];
 
 export default new Router({
   routes: routes,
