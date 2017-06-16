@@ -23,14 +23,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
-      // 'jquery': resolve('node_modules/jquery/dist/jquery.js')
     }
   },
-  // plugins: [
-  //   new webpack.ProvidePlugin({
-  //     $: 'jquery'
-  //   })
-  // ],
   module: {
     rules: [
       {
@@ -58,10 +52,6 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.scss$/,
-        loaders: ['style','css','sass']
       }
     ]
   }

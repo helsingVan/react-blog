@@ -1,8 +1,6 @@
 # vue-recommend
 
-基于vue2.0和豆瓣Api做的电影，音乐，图书推荐webapp
-
-> vue
+> A Vue.js project
 
 ## Build Setup
 

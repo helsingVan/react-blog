@@ -31,7 +31,7 @@
     },
     created() {
       this.init();
-      this.addRouter();
+//      this.addRouter();
     },
     methods: {
       init() {
