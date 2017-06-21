@@ -5,9 +5,9 @@
   	  	<a slot="back" href="##" class="fa fa-chevron-left back" @click="goBack" ></a>
   	  </top-bar>
       <nav class="sub-nav">
-        <router-link to="/movie/more/hotmovie">影院热映</router-link>
-        <router-link to="/movie/more/future">即将热映</router-link>
-        <router-link to="/movie/more/piaofang">海外票房</router-link>
+        <router-link to="/movie/more/hotmovie" replace>影院热映</router-link>
+        <router-link to="/movie/more/future" replace>即将热映</router-link>
+        <router-link to="/movie/more/piaofang" replace>海外票房</router-link>
       </nav>
       <keep-alive>
         <router-view></router-view>
@@ -32,14 +32,17 @@ export default {
   computed: {
   	title() {
   		return this.$store.state.info;
-  	},
-    routerNo() {
-      return this.$store.state.routers;
-    }
+  	}
   },
+  watch: {
+    '$route'(to,from) {
+      console.log(from);
+      console.log(to);
+    }
+  },  
   methods: {
   	goBack() {
-  	  this.$router.go(this.routerNo);
+  	  this.$router.go(-1);
   	}
   }
 }
