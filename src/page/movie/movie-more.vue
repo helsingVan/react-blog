@@ -9,9 +9,9 @@
         <router-link to="/movie/more/future" replace>即将热映</router-link>
         <router-link to="/movie/more/piaofang" replace>海外票房</router-link>
       </nav>
-      <keep-alive>
+      <!-- <keep-alive> -->
         <router-view></router-view>
-      </keep-alive>
+      <!-- </keep-alive> -->
 
   	</div>
   </transition>
@@ -36,8 +36,7 @@ export default {
   },
   watch: {
     '$route'(to,from) {
-      console.log(from);
-      console.log(to);
+      
     }
   },  
   methods: {

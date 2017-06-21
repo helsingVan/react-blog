@@ -26,12 +26,17 @@
     name: 'future',
     data() {
       return {
-        futureMovie: []
+        // futureMovie: []
       }
     },
     created() {
-      this.init();
+      // this.init();
 //      this.addRouter();
+    },
+    computed: {
+      futureMovie() {
+        return this.$store.state.futuremovie;
+      }
     },
     methods: {
       init() {

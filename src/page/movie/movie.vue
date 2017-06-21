@@ -12,6 +12,7 @@
 	  <show-list title="即将热映" :content="futureMovieList"></show-list>
 	</div>
 	<main-nav></main-nav>
+	<loading v-show="loading"></loading>
   </div>
 </template>
 
@@ -21,36 +22,60 @@ import topBar from '../../components/topBar/topbar';
 import Carousel from '../../components/carousel/carousel';
 import showList from '../../components/showList/show-list';
 import moreList from '../../components/showList/more-list';
+import loading from '../../components/loading/loading';
 
 const listLength = 5;
 export default {
   name: 'movie',
-  components: { mainNav,topBar,Carousel,showList,moreList },
+  components: { mainNav,topBar,Carousel,showList,moreList,loading },
   data() {
     return {
 			title: '电影',
-			hotMovie: {},         // 影院热映 全部
-			piaoFang: {},         // 票房榜 全部
-			futureMovie: {},      // 即将上映 全部
+			hotMovie: [],         // 影院热映 全部
+			piaoFangAll: [],      // 票房榜 全部
+			piaoFang: [],
+			futureMovie: [],      // 即将上映 全部
 			carousel: [],         // 轮播图数据
 			piaoFangList: [],     // 票房榜展示数据（截取部分）
 			hotMovieList: [],     // 影院热映展示数据（截取部分）
 			futureMovieList: [],  // 即将上映展示数据（截取部分）
-			
+			loading_1: false,     // 请求1 完毕
+			loading_2: false,     // 请求2 完毕
+			loading_3: false     // 请求3 完毕
 		}
   },
   computed: {
-    
+    loading() {
+      if(this.loading_1 && this.loading_2 && this.loading_3) {
+      	return false;
+      }else {
+      	return true;
+      }
+    }
+  },
+  created() {
+  	this.init();
   },
   mounted() {
-    this.init();
+    
   },
   watch: {
   	hotMovie() {
       this.getCarousel();
+      this.$store.commit({
+      	type: 'addHotmovie',
+      	data: this.hotMovie
+      });
   	},
-  	piaoFang() {
+  	piaoFangAll() {
   	  this.getPiaoFangList();
+  	  
+  	},
+  	futureMovie() {
+  	  this.$store.commit({
+  	  	type: 'addFuturemovie',
+  	  	data: this.futureMovie
+  	  });
   	}
   },
   methods: {
@@ -58,30 +83,35 @@ export default {
 	  let _this = this;
 	  this.$http({
 	    type: 'GET',
-		url: 'https://api.douban.com/v2/movie/in_theaters',
+		url: 'https://api.douban.com/v2/movie/in_theaters?count=46',
 		dataType: 'jsonp',
 		success: function(data) {
-				_this.hotMovie = data;
+				_this.hotMovie = data.subjects;
 				// console.log(data);
 				_this.hotMovieList = data.subjects.slice(0,listLength);
+
+				_this.loading_1 = true;
 			}
 	  });
 	  this.$http({
 	  	type: 'GET',
-	  	url: 'https://api.douban.com/v2/movie/us_box',
+	  	url: 'https://api.douban.com/v2/movie/us_box?count=126',
 	  	dataType: 'jsonp',
 	  	success: function(data) {
-          _this.piaoFang = data;
+          _this.piaoFangAll = data.subjects;
           // console.log(data);
+          _this.loading_2 = true;
 	  	}
 	  });
 	  this.$http({
 	  	type: 'GET',
-	  	url: 'https://api.douban.com/v2/movie/coming_soon',
+	  	url: 'https://api.douban.com/v2/movie/coming_soon?count=50',
 	  	dataType: 'jsonp',
 	  	success: function(data) {
-          _this.futureMovie = data;
+          _this.futureMovie = data.subjects;
           _this.futureMovieList = data.subjects.slice(0,listLength);
+
+          _this.loading_3 = true;
 	  	}
 	  });
 	},
@@ -89,23 +119,24 @@ export default {
 		let content = [];
 		for(let i=0;i<5;i++) {
 			let random = Math.floor(Math.random()*20);
-			let image = this.hotMovie.subjects[random];
+			let image = this.hotMovie[random];
 			content.push(image);
 			}
 		this.carousel = content;
 	},
 	getPiaoFangList() {
 	  let _this = this;
-	  let piaoFang = _this.piaoFang.subjects;
 	  let content = [];
-	  piaoFang.forEach((v)=>{
+	  _this.piaoFangAll.forEach((v)=>{
         content.push(v.subject);
 	  });
+	  _this.piaoFang = content;
       _this.piaoFangList = content.slice(0,listLength);
-	},
-    checkMore(type) {
-	  this.$refs.more.show();
-	  console.log(this.$refs.more);
+      
+      this.$store.commit({
+  	  	type: 'addPiaofang',
+  	  	data: this.piaoFang
+  	  });
 	}
   }
 }

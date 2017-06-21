@@ -18,7 +18,7 @@ Vue.prototype.$http = jquery.ajax;
 const routes = [
 	{
 		path: '/',
-		redirect: 'movie'
+		redirect: {name: 'movie'}
 	},
 	{
 		path: '/movie',
@@ -43,7 +43,7 @@ const routes = [
 		path: '/movie/more',
 		component: MovieMore,
     children: [
-      { path: '',redirect: 'hotMovie' },
+      { path: '',redirect: {name: 'hotMovie'} },
       { path: 'hotmovie',name:'hotMovie',component: HotMovie },
       { path: 'future',component: Future },
       { path: 'piaofang',component: PiaoFang }

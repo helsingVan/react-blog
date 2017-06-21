@@ -26,12 +26,18 @@
     name: 'piaoFang',
     data() {
       return {
-        piaoFang: []
+        // piaoFang: []
       }
     },
     created() {
-      this.init();
+      // this.init();
 //      this.addRouter();
+    },
+    computed: {
+      piaoFang() {
+        console.log(this.$store.state.piaofang);
+        return this.$store.state.piaofang;
+      }
     },
     methods: {
       init() {

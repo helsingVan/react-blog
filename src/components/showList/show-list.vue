@@ -2,7 +2,7 @@
 <div class="show-container">
   <header class="header clearfix">
   	<h2>{{title}}</h2>
-  	<router-link href="##" to="/movie/more">
+  	<router-link href="##" :to="dispatchRouter">
   	  更多
   	  <i class="fa fa-chevron-circle-right"></i>
   	</router-link>
@@ -32,10 +32,29 @@ export default {
   	  type: Array,
   	}
   },
+  computed: {
+    dispatchRouter() {
+      let router = '';
+      switch(this.title) {
+        case '影院热映':
+          router = '/movie/more/hotmovie';
+          break;
+        case '海外票房榜':
+          router = '/movie/more/piaofang';
+          break;
+        case '即将热映':
+          router = '/movie/more/future';
+          break;
+        default:
+          router = '/movie/more';
+          break;
+      }
+      return router;
+    }
+  },
   watch: {
   	content() {
   	  this.init();
-  	  console.log(this.content);
   	}
   },
   methods: {

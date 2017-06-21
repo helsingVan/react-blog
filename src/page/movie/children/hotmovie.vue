@@ -26,13 +26,19 @@
     name: 'hotmovie',
     data() {
       return {
-        hotMovie: []
+        // hotMovie: []
       }
     },
     created() {
-      this.init();
-//      this.addRouter();
+      // this.init();
+
     },
+    computed: {
+      hotMovie() {
+        console.log(this.$store.state);
+        return this.$store.state.hotmovie;
+      }
+    },  
     methods: {
       init() {
         let _this = this;
@@ -44,9 +50,6 @@
             _this.hotMovie = data.subjects;
           }
         });
-      },
-      addRouter() {
-          this.$store.commit('addRouter');
       }
     }
   }
