@@ -9,7 +9,8 @@
   </header>
   <div class="swiper-container" ref="swiper">
   	<ul class="swiper-wrapper">
-  	  <li class="swiper-slide" v-for="list in content">
+  	  <li class="swiper-slide" v-for="list in content" 
+      @click="getDetail(list.id)">
   	  	<img :src="list.images.medium">
   	  	<p class="title">{{list.title}}</p>
   	  	<Star :rating="list.rating"></Star>
@@ -65,12 +66,14 @@ export default {
   	  	  freeMode: true,
   	  	  slidesPerView : 3
   	  	});
-  	  })
+  	  });
   	},
-  	getMore() {
-      console.log(this.type);
-      this.$emit('getMore');
-  	}
+    getDetail(id) {
+      this.$router.push({
+        name: 'detail',
+        params: { id }
+      })
+    }
   }
 }
 </script>
