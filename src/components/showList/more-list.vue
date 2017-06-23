@@ -26,12 +26,5 @@ export default {
 <style lang="scss">
 @import '../../assets/scss/common.scss';
 
-.more {
-  position: absolute;
-  background: red;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
+
 </style>

@@ -3,7 +3,7 @@
     <p class="star-box">
       <i class="fa" :class="item" v-for="item in starAmounts"></i>
     </p>
-    <p class="star-score">{{score}}</p>
+    <p v-if="hasScore" class="star-score">{{score}}</p>
   </div>
 </template>
 
@@ -13,7 +13,10 @@ export default {
   props: {
   	rating: {
   	  type: Object
-  	}
+  	},
+    hasScore: {
+      type: Boolean
+    }
   },
 
   computed: {

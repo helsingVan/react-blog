@@ -3,6 +3,9 @@
   	<div class="detail">
   	  <v-banner :images="detail.images"></v-banner>
       <banner-list :content="detail"></banner-list>
+      <intro-list :content="detail"></intro-list>
+      <casts-list :directors="directorsList" :casts="castsList"></casts-list>
+
   	  <loading v-show="loading"></loading>
       
   	</div>
@@ -13,14 +16,18 @@
 import vBanner from '../../components/carousel/banner';
 import loading from '../../components/loading/loading';
 import bannerList from '../../components/showList/banner-list';
+import introList from '../../components/showList/intro-list';
+import castsList from '../../components/showList/casts-list';
 
 export default {
   name: 'detail',
-  components: { vBanner,loading,bannerList },
+  components: { vBanner,loading,bannerList,introList,castsList },
   data() {
   	return {
   	  loading: true,
-  	  detail: { images:null }    // movie detail
+  	  detail: { images:{},rating: {} },    // movie detail
+      castsList: [],
+      directorsList: []
   	}
   },
   mounted() {
@@ -33,16 +40,24 @@ export default {
   	init() {
   	  let _this = this;
   	  let id = this.$route.params.id;
-  	  this.$http({
-  	  	type: 'GET',
-  	  	url: 'https://api.douban.com/v2/movie/subject/' + id,
-  	  	dataType: 'jsonp',
-  	  	success: function(data) {
-  	  	  console.log(data);
-  	  	  _this.loading = false;
-          _this.detail = data;
-  	  	}
-  	  })
+      if(id) {
+        // 获取电影条目信息
+        this.$http({
+          type: 'GET',
+          url: 'https://api.douban.com/v2/movie/subject/' + id,
+          dataType: 'jsonp',
+          success: function(data) {
+            console.log(data);
+            _this.loading = false;
+            _this.detail = data;
+            _this.castsList = data.casts;
+            _this.directorsList = data.directors;
+          }
+        });
+      }
+      
+      // 获取剧照 /v2/movie/subject/:id/photos
+
   	}
   }
 }
