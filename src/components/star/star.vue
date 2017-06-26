@@ -3,7 +3,7 @@
     <p class="star-box">
       <i class="fa" :class="item" v-for="item in starAmounts"></i>
     </p>
-    <p v-if="hasScore" class="star-score">{{score}}</p>
+    <p class="star-score">{{score}}</p>
   </div>
 </template>
 
@@ -47,7 +47,10 @@ export default {
   	  if(this.rating.average === 0) {
         return '暂无评分';
   	  }else {
-  	  	return this.rating.average;
+  	  	// return this.rating.average;
+        if(this.hasScore) {
+          return this.rating.average;
+        }
   	  }
   	}
   }

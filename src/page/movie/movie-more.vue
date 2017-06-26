@@ -2,7 +2,7 @@
   <transition name="fade">
   	<div class="main" style="background:#fff;">
   	  <top-bar :title="title">
-  	  	<a slot="back" href="##" class="fa fa-chevron-left back" @click="goBack" ></a>
+  	  	<a slot="back" class="fa fa-chevron-left back" @click="goBack"></a>
   	  </top-bar>
       <nav class="sub-nav">
         <router-link to="/movie/more/hotmovie" replace>影院热映</router-link>

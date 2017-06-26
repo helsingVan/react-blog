@@ -11,6 +11,7 @@ import HotMovie from '@/page/movie/children/hotmovie'
 import Future from '@/page/movie/children/future'
 import PiaoFang from '@/page/movie/children/piaofang'
 import Detail from '@/page/detail/detail'
+import DetailCast from '@/page/detail/detail-cast'
 
 Vue.use(Router)
 // Vue.prototype.$http = Axios;
@@ -54,6 +55,11 @@ const routes = [
 		path: '/movie/detail/:id',
 		name: 'detail',
 		component: Detail
+	},
+	{
+		path: '/movie/detail/casts/:id',
+		name: 'detailCast',
+		component: DetailCast
 	}
 ];
 

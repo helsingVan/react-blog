@@ -3,12 +3,12 @@
   	<h2>影人</h2>
   	<div class="swiper-container" ref="swiperCasts">
   	  <ul class="swiper-wrapper">
-  	  	<li class="swiper-slide" v-for="item in directors">
+  	  	<li class="swiper-slide" v-for="item in directors" @click="getDetail(item.id)">
   	  	  <img :src="item.avatars.small" alt="">
   	  	  <p class="name">{{item.name}}</p>
   	  	  <p class="type">导演</p>
   	  	</li>
-  	  	<li class="swiper-slide" v-for="item in casts">
+  	  	<li class="swiper-slide" v-for="item in casts" @click="getDetail(item.id)">
   	  	  <img :src="item.avatars.small" alt="">
   	  	  <p class="name">{{item.name}}</p>
   	  	</li>
@@ -40,7 +40,13 @@ export default {
       	  slidesPerView: 3
       	});
       });
-  	}
+  	},
+    getDetail(id) {
+      this.$router.push({
+        name: 'detailCast',
+        params: { id }
+      })
+    }
   }
 }
 </script>

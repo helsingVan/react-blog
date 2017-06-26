@@ -1,6 +1,7 @@
 <template>
   <transition name="fade">
-  	<div class="detail">
+  	<div class="detail" ref="detail">
+      <detail-top :title="topTitle" ref="topbar"></detail-top>
   	  <v-banner :images="detail.images"></v-banner>
       <banner-list :content="detail"></banner-list>
       <intro-list :content="detail"></intro-list>
@@ -18,10 +19,11 @@ import loading from '../../components/loading/loading';
 import bannerList from '../../components/showList/banner-list';
 import introList from '../../components/showList/intro-list';
 import castsList from '../../components/showList/casts-list';
+import detailTop from '../../components/topBar/detail-top';
 
 export default {
   name: 'detail',
-  components: { vBanner,loading,bannerList,introList,castsList },
+  components: { vBanner,loading,bannerList,introList,castsList,detailTop },
   data() {
   	return {
   	  loading: true,
@@ -30,8 +32,14 @@ export default {
       directorsList: []
   	}
   },
+  computed: {
+    topTitle() {
+      return this.detail.title;
+    }
+  },
   mounted() {
   	this.init();
+    this.scroll();
   },
   watch: {
     '$route': 'init'
@@ -55,10 +63,20 @@ export default {
           }
         });
       }
-      
       // 获取剧照 /v2/movie/subject/:id/photos
-
-  	}
+  	},
+    goBack() {
+      this.$router.go(-1);
+    },
+    scroll() {
+      let detail = this.$refs.detail;
+      let topbarEl = this.$refs.topbar.$el;
+      window.onscroll = function(e) {
+        let rate = (window.scrollY)/400;
+        rate = rate>1?1:rate;
+        topbarEl.style.background = `rgba(255,255,255,${rate})`;
+      }
+    }
   }
 }
 </script>

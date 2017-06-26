@@ -2,7 +2,7 @@
 <div class="carousel">
   <div class="swiper-container" ref="swiper">
     <ul class="swiper-wrapper">
-      <li class="swiper-slide" v-for="item in content">
+      <li class="swiper-slide" v-for="item in content" @click="getDetail(item.id)">
         <img :src="item.images.large">
         <div class="info">
           <p>《{{item.title}}》</p>
@@ -46,6 +46,12 @@ export default {
           autoplayDisableOnInteraction: false,
           pagination: pagination
         });
+      });
+    },
+    getDetail(id) {
+      this.$router.push({
+        name: 'detail',
+        params: { id }
       });
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="mt30">
     <ul>
-      <li v-for="item in hotMovie" class="more-list">
+      <li v-for="item in hotMovie" class="more-list" @click="getDetail(item.id)">
         <figure>
           <img :src="item.images.medium" alt="">
           <section class="content">
@@ -49,6 +49,12 @@
           success: function (data) {
             _this.hotMovie = data.subjects;
           }
+        });
+      },
+      getDetail(id) {
+        this.$router.push({
+          name: 'detail',
+          params: { id }
         });
       }
     }

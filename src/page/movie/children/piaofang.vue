@@ -1,7 +1,7 @@
 <template>
   <div class="mt30">
     <ul>
-      <li v-for="item in piaoFang" class="more-list">
+      <li v-for="item in piaoFang" class="more-list" @click="getDetail(item.id)">
         <figure>
           <img :src="item.images.medium" alt="">
           <section class="content">
@@ -57,6 +57,12 @@
       },
       addRouter() {
         this.$store.commit('addRouter');
+      },
+      getDetail(id) {
+        this.$router.push({
+          name: 'detail',
+          params: { id }
+        });
       }
     }
   }
