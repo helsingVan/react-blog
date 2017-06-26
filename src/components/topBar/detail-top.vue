@@ -1,5 +1,5 @@
 <template>
-  <div class="detail-top">
+  <div class="detail-top" ref="detailTopBar">
   	<a class="back" @click="goBack">
   	  <i class="fa fa-chevron-left"></i>
   	</a>
@@ -14,12 +14,20 @@ export default {
   	title: {}
   },
   mounted() {
-  	
+  	this.scroll();
   },
   methods: {
   	goBack() {
   	  this.$router.go(-1);
-  	}
+  	},
+    scroll() {
+      let topbarEl = this.$refs.detailTopBar;
+      window.onscroll = function(e) {
+        let rate = (window.scrollY)/400;
+        rate = rate>1?1:rate;
+        topbarEl.style.background = `rgba(255,255,255,${rate})`;
+      }
+    }
   }
 }
 </script>

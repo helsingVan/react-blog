@@ -15,7 +15,10 @@ export default {
   	  type: Object
   	},
     hasScore: {
-      type: Boolean
+      type: Boolean,
+      default() {
+        return true;
+      }
     }
   },
 

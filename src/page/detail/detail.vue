@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-  	<div class="detail" ref="detail">
-      <detail-top :title="topTitle" ref="topbar"></detail-top>
+  	<div class="detail">
+      <detail-top :title="topTitle"></detail-top>
   	  <v-banner :images="detail.images"></v-banner>
       <banner-list :content="detail"></banner-list>
       <intro-list :content="detail"></intro-list>
@@ -39,7 +39,7 @@ export default {
   },
   mounted() {
   	this.init();
-    this.scroll();
+    // this.scroll();
   },
   watch: {
     '$route': 'init'
@@ -67,15 +67,6 @@ export default {
   	},
     goBack() {
       this.$router.go(-1);
-    },
-    scroll() {
-      let detail = this.$refs.detail;
-      let topbarEl = this.$refs.topbar.$el;
-      window.onscroll = function(e) {
-        let rate = (window.scrollY)/400;
-        rate = rate>1?1:rate;
-        topbarEl.style.background = `rgba(255,255,255,${rate})`;
-      }
     }
   }
 }
@@ -88,5 +79,6 @@ export default {
   min-height: 100%;
   height: auto;
   position: relative;
+  padding-bottom: 2rem;
 }
 </style>
