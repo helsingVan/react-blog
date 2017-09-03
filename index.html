@@ -18,23 +18,21 @@
 
   <script>
   
-    function callJson(res) {
-      try {
-        if(res) {
-          console.log(res);
-          return res;
+    $.ajax({
+      ...,
+      beforeSend:function() {
+        console.log('彭立萨比')
+      },
+      success:function(data) {
 
-        }else {
-          return 'error';
-        }
-      }catch(e) {
-        console.log(e);
+      },
+      complete: function() {
+
+      },
+      error: function(e) {
+
       }
-    }
-    callJson.prototype.then = function(callback) {
-      var _this = this;
-      callback(_this.res);
-    }
+    })
   </script>
 
   <script>
