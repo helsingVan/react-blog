@@ -16,7 +16,6 @@ export default {
 		])
 	},
 	methods: {
-
 		...mapMutations({
 			'_setFullScreen': 'SET_FULLSCREEN'
 		})

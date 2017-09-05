@@ -34,9 +34,7 @@ export default {
 		}
 	},
 	computed: {
-		drawerWidth() {
-			return document.body.clientWidth - 250;
-		}
+		
 	},
 	created() {
 		console.log(document.body.clientWidth);
