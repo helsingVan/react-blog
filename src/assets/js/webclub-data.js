@@ -1,4 +1,4 @@
-export const webClubData = [
+export const webNavData = [
   {
   	title: 'W3C',
   	url: 'http://www.chinaw3c.org/',

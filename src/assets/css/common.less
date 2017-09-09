@@ -1,0 +1,17 @@
+
+.web-flexbox {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	.flexboxitem {
+	  width: 20%;
+	  flex: 0 0 20%;
+	  margin: 0 10px 10px;
+	  &:nth-child(4n+1) {
+	    margin: 0 10px 10px 0;
+	  }
+	  &:nth-child(4n) {
+	    margin: 0 0 10px 10px;
+	  }
+	}
+}

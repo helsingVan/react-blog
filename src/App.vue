@@ -17,11 +17,11 @@ import vHeader from 'components/header/header';
 export default {
   name: 'app',
   created() {
-    axios.get('/php').then((res)=>{
-      console.log(res.data);
-    }).catch((e)=> {
-      console.log(e);
-    })
+    // axios.get('/php').then((res)=>{
+    //   console.log(res.data);
+    // }).catch((e)=> {
+    //   console.log(e);
+    // })
   },
   data() {
     return {

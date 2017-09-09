@@ -12,13 +12,25 @@ const WebClub = (resolve) => {
     resolve(module)
   })
 }
-
+const WebNav = (resolve) => {
+  import('page/webclub/web-nav').then((module)=> {
+    resolve(module)
+  })
+}
+const WebTool = (resolve) => {
+  import('page/webclub/web-tool').then((module)=> {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {path: '/',name: 'Home',component: Home},
-    {path: '/webclub',name: 'WebClub',component: WebClub}
+    {path: '/webclub',name: 'WebClub',component: WebClub, redirect: '/webclub/nav',children: [
+      { path: 'nav',name:'WebNav',component: WebNav},
+      { path: 'tool',name:'WebTool',component: WebTool}
+    ]}
   ]
 })
