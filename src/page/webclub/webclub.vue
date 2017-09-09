@@ -122,15 +122,7 @@ export default {
 		overflow: auto;
 		padding: 85px 20px 0;
 	}
-	.wrapper {
-		width: 80%;
-		padding: 20px 20px;
-		margin: 20px auto;
-		h2 {
-			border-bottom: 1px solid #e5e5e5;
-			padding: 10px 0;
-		}
-	}
+	
 	.card-container {
 		display: flex;
 		flex-flow: row wrap;

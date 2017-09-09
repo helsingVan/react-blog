@@ -137,3 +137,39 @@ export const webGoodJobData = [
     githubUrl: ''
   }
 ];
+
+export const webToolData = [
+  {
+    name: 'Vue',
+    avatar: '/static/image/webclub/vue.jpg',
+    url: 'https://cn.vuejs.org/v2/guide/',
+    style: 'vue',
+    sub: [{
+      name: 'vuex',
+      url: 'https://vuex.vuejs.org/'
+    },{
+      name: 'vue-router',
+      url: 'https://router.vuejs.org/'
+    }],
+    tools: [
+      {
+        name: 'Muse-UI',
+        url: 'http://www.muse-ui.org/#/index',
+        image: '/static/webclub/vue-museui.png',
+        info: '基于Vue2.0和Material Design的UI组件库'
+      },
+      {
+        name:'element-UI',
+        url:'http://element.eleme.io/#/zh-CN',
+        image:'/static/webclub/vue-elementui.svg',
+        info: '饿了么出品，基于Vue2.0的网站快速成型UI库'
+      },
+      {
+        name: 'mint-UI',
+        url: 'http://mint-ui.github.io/#!/zh-cn',
+        image: '/static/webclub/vue-mint.svg',
+        info: '饿了么出品，基于 Vue.js 的移动端组件库'
+      }
+    ]
+  }
+]

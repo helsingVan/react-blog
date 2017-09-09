@@ -1,13 +1,66 @@
 <template>
-  <div>前端框架工具集</div>
+  <section class="web-tool">
+  	<div class="wrapper" v-for="item in toolList" :class="item.style">
+  	  <header class="header clearfix">
+  	  	<mu-avatar :src="item.avatar" :size="60"></mu-avatar>
+  	  	<div class="header-title">
+  	  	  <h2>{{item.name}}</h2>
+  	  	  <div class="sub">
+  	  	  	<a v-for="sub in item.sub" :href="sub.url" target="_blank">{{sub.name}}</a>
+  	  	  </div>
+  	  	</div>
+  	  </header>
+  	</div>
+  </section>
 </template>
 
 <script>
-export default {
+import { webToolData } from 'assets/js/webclub-data';
 
+export default {
+  data() {
+  	return {
+  	  toolList: webToolData
+  	}
+  }
 }
 </script>
 
 <style lang="less">
-	
+@import "~assets/css/common";
+
+.web-tool {
+	.wrapper {
+
+	}
+	.mu-avatar {
+		float: left;
+	}
+	.header {
+		border-bottom: 1px solid @grey300;
+		padding-bottom: 10px;
+	}
+	.header-title {
+		padding-left: 20px;
+		overflow: hidden;
+		h2 {
+			font-size: 18px;
+		}
+		.sub {
+			padding-top: 6px;
+		}
+		.sub a {
+			display: inline-block;
+			margin-right: 10px;
+			padding: 2px 8px;
+			border-radius: 20px;
+			color: #fff;
+		}
+	}
+	.vue {
+		.sub a {
+			background: @greenVue;
+		}
+	}
+}
 </style>
