@@ -9,6 +9,7 @@
   	  	  	<a v-for="sub in item.sub" :href="sub.url" target="_blank">{{sub.name}}</a>
   	  	  </div>
   	  	</div>
+  	  	<mu-icon-button icon="expand_more"></mu-icon-button>
   	  </header>
   	</div>
   </section>
@@ -37,8 +38,16 @@ export default {
 		float: left;
 	}
 	.header {
+		position: relative;
 		border-bottom: 1px solid @grey300;
 		padding-bottom: 10px;
+		.mu-icon-button {
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			border: 1px solid @grey300;
+		}
 	}
 	.header-title {
 		padding-left: 20px;
