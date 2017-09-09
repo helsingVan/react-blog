@@ -46,6 +46,7 @@ export default {
 }
 .main-content {
   position: relative;
+  height: 100%;
   padding-left: 250px;
   transition: all .5s cubic-bezier(.23,1,.32,1);
   &.fullscreen {

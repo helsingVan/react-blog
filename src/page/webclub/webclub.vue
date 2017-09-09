@@ -17,13 +17,19 @@
 			<mu-flat-button label="查看更多" class="more" @click="setCheckMore"></mu-flat-button>
 		</mu-paper>
 		<v-drawer :open="checkMore"></v-drawer> -->
-		<mu-appbar :title="headTitle">
+		<mu-appbar :title="headTitle" class="web-header">
 			<mu-flat-button color="white" v-for="item in navList"
 			:label="item.name" :slot="item.slot" :to="item.url"></mu-flat-button>
-		</mu-appbar>
+
+		    
+        </mu-appbar>
 		<div class="main-content">
 		<!-- <mu-content-block> -->
-			<router-view></router-view>
+		
+		    <keep-alive>
+		    	<router-view></router-view>
+		    </keep-alive>
+			
 		<!-- </mu-content-block> -->
 			
 		</div>
@@ -42,6 +48,7 @@ export default {
 		return {
 			webClub: [],
 			checkMore: false,
+			value:'1',
 			// 导航数据
 			navList: [{
 				name: '前端社区',
@@ -50,6 +57,10 @@ export default {
 			},{
 				name: '前端框架',
 				url: '/webclub/tool',
+				slot: 'right'
+			},{
+				name: '大牛博客',
+				url: '/webclub/goodjob',
 				slot: 'right'
 			}]
 		}
@@ -63,6 +74,9 @@ export default {
 					break;
 				case 'WebTool':
 					return '前端框架';
+					break;
+				case 'WebGoodJob':
+					return '大牛博客';
 					break;
 			}
 		}
@@ -82,6 +96,9 @@ export default {
 		},
 		targetTitle(titleName) {
 			console.log(titleName);
+		},
+		handleChange(value) {
+			this.value = value;
 		}
 	}
 }
@@ -89,8 +106,21 @@ export default {
 
 <style lang="less">
 .webclub {
+	position: relative;
+	height: 100%;
+	.web-header {
+		position: relative;
+		z-index: 100;
+	}
 	.main-content {
-		padding: 20px 20px 0;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		height: 100%;
+		overflow: auto;
+		padding: 85px 20px 0;
 	}
 	.wrapper {
 		width: 80%;

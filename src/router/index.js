@@ -22,6 +22,11 @@ const WebTool = (resolve) => {
     resolve(module)
   })
 }
+const WebGoodJob = (resolve) => {
+  import('page/webclub/web-goodjob').then((module)=> {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
@@ -30,7 +35,8 @@ export default new Router({
     {path: '/',name: 'Home',component: Home},
     {path: '/webclub',name: 'WebClub',component: WebClub, redirect: '/webclub/nav',children: [
       { path: 'nav',name:'WebNav',component: WebNav},
-      { path: 'tool',name:'WebTool',component: WebTool}
+      { path: 'tool',name:'WebTool',component: WebTool},
+      { path: 'goodjob',name:'WebGoodJob',component: WebGoodJob}
     ]}
   ]
 })

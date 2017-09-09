@@ -77,4 +77,63 @@ export const webNavData = [
   	image: '/static/image/webclub/qianduanwang.jpg',
   	text: '专注于web前端开发行业的综合性门户网站'
   }
-]
+];
+
+export const webGoodJobData = [
+  {
+    name: '阮一峰',
+    info: '《ES6入门》作者',
+    image: '/static/image/webclub/ruanyifeng.jpg',
+    blogUrl: 'http://www.ruanyifeng.com/blog/',
+    weiboUrl: '',
+    githubUrl: ''
+  },
+  {
+    name: '张鑫旭',
+    info: '前端教父',
+    image: '/static/image/webclub/zhangxinxu.jpg',
+    blogUrl: 'http://www.zhangxinxu.com/wordpress/',
+    weiboUrl: '',
+    githubUrl: ''
+  },
+  {
+    name: '尤雨溪',
+    info: 'Vue.js的作者，HTML5版Clear的打造人',
+    image: '/static/image/webclub/youyuxi.jpg',
+    blogUrl: 'http://weibo.com/arttechdesign?is_hot=1',
+    weiboUrl: '',
+    githubUrl: ''
+  },
+  {
+    name: '司徒正美',
+    info: 'MVVM框架avalonjs作者',
+    image: '/static/image/webclub/situzhengmei.jpg',
+    blogUrl: 'http://www.cnblogs.com/rubylouvre',
+    weiboUrl: 'http://weibo.com/jslouvre',
+    githubUrl: ''
+  },
+  {
+    name: '玉伯',
+    info: 'seajs、kiss作者，现在蚂蚁金服',
+    image: '/static/image/webclub/yubo.jpg',
+    blogUrl: '',
+    weiboUrl: '',
+    githubUrl: ''
+  },
+  {
+    name: '拴萝卜的棍子',
+    info: '网易前端大牛，regularjs作者',
+    image: '/static/image/webclub/luobo.jpg',
+    blogUrl: 'http://leeluolee.github.io/',
+    weiboUrl: '',
+    githubUrl: ''
+  },
+  {
+    name: '左耳朵耗子',
+    info: '淘宝前端',
+    image: '/static/image/webclub/erduo.jpg',
+    blogUrl: 'https://coolshell.cn/',
+    weiboUrl: '',
+    githubUrl: ''
+  }
+];
