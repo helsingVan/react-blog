@@ -111,6 +111,9 @@ export default {
 	.web-header {
 		position: relative;
 		z-index: 100;
+		.mu-appbar-title {
+			font-size: 20px;
+		}
 	}
 	.main-content {
 		position: absolute;

@@ -1,13 +1,13 @@
 <template>
 	<mu-drawer width="250" :open="!fullScreen" class="nav-aside">
 		<div class="wrapper user">
-			<!-- <mu-avatar src="/static/image/user.jpg" :size="100"></mu-avatar> -->
+			<mu-avatar src="/static/image/user.jpg" :size="100"></mu-avatar>
 		</div>
 		<mu-list class="nav-list">
-			<mu-list-item title="HOME" to="/"></mu-list-item>
-			<mu-list-item title="WebClub" to="/webclub"></mu-list-item>
-			<mu-list-item title="HOME"></mu-list-item>
-			<mu-list-item title="HOME"></mu-list-item>
+			<mu-list-item title="主页" to="/"></mu-list-item>
+			<mu-list-item title="收藏与分享" to="/webclub"></mu-list-item>
+			<!-- <mu-list-item title="HOME"></mu-list-item>
+			<mu-list-item title="HOME"></mu-list-item> -->
 		</mu-list>
 		<button @click="_setFullScreen(true)">关闭</button>
 	</mu-drawer>

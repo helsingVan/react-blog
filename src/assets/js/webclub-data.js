@@ -140,8 +140,8 @@ export const webGoodJobData = [
 
 export const webToolData = [
   {
-    name: 'Vue',
-    avatar: '/static/image/webclub/vue.jpg',
+    name: 'Vue技术栈',
+    avatar: '/static/image/webclub/vue.png',
     url: 'https://cn.vuejs.org/v2/guide/',
     style: 'vue',
     sub: [{
@@ -152,6 +152,21 @@ export const webToolData = [
       url: 'https://router.vuejs.org/'
     }],
     tools: [
+      {
+        name: 'vue.js',
+        url: 'https://cn.vuejs.org/v2/guide/',
+        info: '当下很火的一个JavaScript MVVM库，它是以数据驱动和组件化的思想构建的。相比于Angular.js，Vue.js提供了更加简洁、更易于理解的API，使得我们能够快速地上手并使用Vue.js'
+      },
+      {
+        name: 'vue-roter',
+        url: 'https://router.vuejs.org/',
+        info: 'vue路由'
+      },
+      {
+        name: 'vuex',
+        url: 'https://vuex.vuejs.org/',
+        info: 'vue状态管理工具'
+      },
       {
         name: 'Muse-UI',
         url: 'http://www.muse-ui.org/#/index',
