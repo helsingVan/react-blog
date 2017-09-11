@@ -43,6 +43,11 @@ const BlogTechnologyHtml5 = (resolve) => {
     resolve(module)
   })
 }
+const BlogDiary = (resolve) => {
+  import('page/blog/blog-diary').then((module)=> {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
@@ -56,7 +61,8 @@ export default new Router({
     ]},
     {path: '/blog',name: 'Blog',component: Blog,children: [
       {path: 'technology',name: 'BlogTechnology',component: BlogTechnology},
-      {path: 'html5',name: 'BlogTechnologyHtml5',component: BlogTechnologyHtml5}
+      {path: 'html5',name: 'BlogTechnologyHtml5',component: BlogTechnologyHtml5},
+      {path: 'diary',name: 'BlogDiary',component: BlogDiary}
     ]}
   ]
 })

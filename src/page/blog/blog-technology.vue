@@ -6,9 +6,9 @@
       	<mu-list>
       	  <mu-sub-header class="clearfix">
       	  	<h2>html5</h2>
-      	  	<a href="##">查看更多</a>
+      	  	<router-link to="/blog/html5">更多</router-link>
       	  </mu-sub-header>
-      	  <mu-list-item v-for="i in 4" :disabled="true">
+      	  <mu-list-item v-for="i in 3" :disabled="true">
       	    <h3 slot="title" class="title">HTML分析</h3>
       	  	<p slot="describe" class="describe">html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国html5中国</p>
       	  	<time class="describe time">2017-08-08</time>
@@ -59,6 +59,9 @@ export default {
 			font-size: 12px;
 		}
 	}
+	.mu-item {
+		padding: 8px 56px 8px 16px;
+	}
 	.title {
 		font-size: 14px;
 	}
@@ -67,7 +70,7 @@ export default {
 	}
 	.time {
 		display: block;
-		margin-top: 8px;
+		margin-top: 4px;
 		color: @grey500;
 	}
 	.comment {

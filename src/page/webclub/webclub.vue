@@ -106,7 +106,6 @@ export default {
 
 <style lang="less">
 .webclub {
-	height: 100%;
 	position: relative;
 	height: 100%;
 	.web-header {

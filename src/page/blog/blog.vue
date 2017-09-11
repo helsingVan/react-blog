@@ -3,7 +3,7 @@
   	<mu-appbar title="MyBlog" class="blog-header">
 			<!-- <mu-flat-button color="white" v-for="item in navList"
 			:label="item.name" :slot="item.slot" :to="item.url"></mu-flat-button> -->
-	  <mu-flat-button color="white" label="随笔" slot="right"></mu-flat-button>
+	  <mu-flat-button color="white" label="随笔" slot="right" to="/blog/diary"></mu-flat-button>
 	  <mu-flat-button color="white" label="技术" slot="right" to="/blog/technology"></mu-flat-button>
     </mu-appbar>
     <div class="main-content">
