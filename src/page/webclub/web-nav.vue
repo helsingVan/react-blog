@@ -28,6 +28,7 @@ export default {
 .web-nav {
 	.item {
 		margin-bottom: 10px;
+		
 		a {
 			display: block;
 			height: 60%;

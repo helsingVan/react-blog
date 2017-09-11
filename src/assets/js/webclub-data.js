@@ -144,13 +144,6 @@ export const webToolData = [
     avatar: '/static/image/webclub/vue.png',
     url: 'https://cn.vuejs.org/v2/guide/',
     style: 'vue',
-    sub: [{
-      name: 'vuex',
-      url: 'https://vuex.vuejs.org/'
-    },{
-      name: 'vue-router',
-      url: 'https://router.vuejs.org/'
-    }],
     tools: [
       {
         name: 'vue.js',
@@ -186,5 +179,8 @@ export const webToolData = [
         info: '饿了么出品，基于 Vue.js 的移动端组件库'
       }
     ]
+  },
+  {
+    name: ''
   }
 ]
