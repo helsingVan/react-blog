@@ -33,6 +33,11 @@ const Blog = (resolve) => {
     resolve(module)
   })
 }
+const BlogIndex = (resolve) => {
+  import('page/blog/blog-index').then((module)=> {
+    resolve(module)
+  })
+}
 const BlogTechnology = (resolve) => {
   import('page/blog/blog-technology').then((module)=> {
     resolve(module)
@@ -60,6 +65,7 @@ export default new Router({
       {path: 'goodjob',name:'WebGoodJob',component: WebGoodJob}
     ]},
     {path: '/blog',name: 'Blog',component: Blog,children: [
+      {path: '',name: 'BlogIndex',component: BlogIndex},
       {path: 'technology',name: 'BlogTechnology',component: BlogTechnology},
       {path: 'html5',name: 'BlogTechnologyHtml5',component: BlogTechnologyHtml5},
       {path: 'diary',name: 'BlogDiary',component: BlogDiary}

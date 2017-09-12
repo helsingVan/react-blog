@@ -6,9 +6,9 @@
 	  <mu-flat-button color="white" label="随笔" slot="right" to="/blog/diary"></mu-flat-button>
 	  <mu-flat-button color="white" label="技术" slot="right" to="/blog/technology"></mu-flat-button>
     </mu-appbar>
-    <div class="main-content">
-      <router-view></router-view>
-    </div>
+  
+    <router-view class="main-content"></router-view>
+    
   </div>
 </template>
 
