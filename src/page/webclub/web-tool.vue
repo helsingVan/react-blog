@@ -56,7 +56,7 @@ export default {
 
 .web-tool {
 	.wrapper {
-
+		margin-bottom: 20px;
 	}
 	.mu-avatar {
 		// float: left;

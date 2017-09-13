@@ -181,6 +181,50 @@ export const webToolData = [
     ]
   },
   {
-    name: ''
+    name: 'React技术栈',
+    avatar: '/static/image/webclub/react.png',
+    url: 'https://discountry.github.io/react/',
+    tools: [
+      {
+        name: 'react.js',
+        url: 'https://discountry.github.io/react/',
+        info: 'fackbook出品，用于构建用户界面的 JAVASCRIPT 库'
+      },
+      {
+        name: 'react-router',
+        url: 'https://reacttraining.com/react-router/',
+        info: 'react路由'
+      },
+      {
+        name: 'redux',
+        url: 'http://redux.js.org/',
+        info: 'react状态管理工具'
+      },
+      {
+        name: 'Ant design',
+        url: 'https://ant.design/index-cn',
+        info: 'react ui框架，蚂蚁金服ui设计语言'
+      },
+      {
+        name: 'Material UI',
+        url: 'http://www.material-ui.com',
+        info: '非常高的 star 数，帅气的 Material 设计规范实现，巨量 issue 和贡献者，明星级的项目'
+      },
+      {
+        name: 'react-bootstrap',
+        url: 'https://react-bootstrap.github.io/',
+        info: '基于bootstrap的react ui框架'
+      },
+      {
+        name: 'react toolbox',
+        url: 'http://react-toolbox.com',
+        info: '同样实现了 Material Design 的后起之秀，使用 css-modules，演示文档内建了一个实时编辑器，非常赞'
+      },
+      {
+        name: 'Blueprint',
+        url: 'http://blueprintjs.com/',
+        info: '质量极好的组件库，用 TypeScript 和 Scss 开发，功能强大，并且有自己的色彩和排版规范'
+      }
+    ]
   }
 ]
