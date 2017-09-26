@@ -53,7 +53,16 @@ const BlogDiary = (resolve) => {
     resolve(module)
   })
 }
-
+const Article = (resolve) => {
+  import('page/article/article').then((module)=> {
+    resolve(module)
+  })
+}
+const ArticleDetail = (resolve) => {
+  import('page/article/article-details').then((module)=> {
+    resolve(module)
+  })
+}
 Vue.use(Router)
 
 export default new Router({
@@ -69,6 +78,8 @@ export default new Router({
       {path: 'technology',name: 'BlogTechnology',component: BlogTechnology},
       {path: 'html5',name: 'BlogTechnologyHtml5',component: BlogTechnologyHtml5},
       {path: 'diary',name: 'BlogDiary',component: BlogDiary}
-    ]}
+    ]},
+    {path: '/article',name: 'Article',component: Article},
+    {path: '/article/:id',name: 'ArticleDetail',component: ArticleDetail}
   ]
 })

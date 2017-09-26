@@ -7,6 +7,7 @@
 			<mu-list-item title="主页" to="/"></mu-list-item>
 			<mu-list-item title="收藏与分享" to="/webclub"></mu-list-item>
 			<mu-list-item title="Blog" to="/blog"></mu-list-item>
+			<mu-list-item title="文章" to="/article"></mu-list-item>
 			<!-- <mu-list-item title="HOME"></mu-list-item> -->
 		</mu-list>
 		<button @click="_setFullScreen(true)">关闭</button>
