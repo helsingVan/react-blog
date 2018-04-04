@@ -16,4 +16,12 @@ html,body {
   visibility: hidden;
 }
 
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  color: #40a9ff;
+}
+
 
