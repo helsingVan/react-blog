@@ -4,7 +4,7 @@ import './App.css';
 import MainHeader from './components/header/header';
 import Home from './views/home/home';
 
-import Page2 from './views/home/page2';
+import blog from './views/blog/blog';
 import Page3 from './views/home/page3';
 import Page4 from './views/home/page4';
 
@@ -13,8 +13,8 @@ class App extends Component {
     super(props);
     this.state = {
       nav: [
-          { url: '/home', path: '', text: '首页', i: 0, component: Home, exact: true},
-          { url: '/diary', path: '/diary/:id', text: '随笔', i: 1, component: Page2, exact: false},
+          { url: '/', path: '/', text: '首页', i: 0, component: Home, exact: true},
+          { url: '/diary', path: '/diary/:id', text: '随笔', i: 1, component: blog, exact: false},
           { url: '/album', path: '/album', text: '相册', i: 2, component: Page3, exact: false},
           { url: '/about', path: '/about', text: '关于', i: 3, component: Page4, exact: false}
       ]
@@ -29,7 +29,7 @@ class App extends Component {
         <div>
           
           <MainHeader nav={this.state.nav}/>
-          <section>
+          <section className="main-content">
             {Routes}
           </section>
         </div>  
