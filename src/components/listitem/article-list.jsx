@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {browserHistory} from 'react-router';
+
 
 import './style.sass';
 
@@ -10,7 +10,7 @@ class ArticleList extends Component {
     }
     
     render () {
-        console.log(browserHistory);
+        
         return (
             <div className="article-list">
                 <h2>{this.props.content.title}</h2>

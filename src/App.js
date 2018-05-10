@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import './App.css';
+
 import MainHeader from './components/header/header';
 import Home from './views/home/home';
 
