@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, NavLink, Link, Route } from 'react-router-dom';
-import './style.sass';
+import './style.css';
 import LogoImg from './logo.jpeg';
 
 class MainHeader extends Component {

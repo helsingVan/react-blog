@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import highlightjs from 'highlight.js/lib/highlight';
-// import 'highlight.js/styles/default.css';
+import 'highlight.js/styles/default.css';
+import 'highlight.js/styles/solarized-dark.css';
 import myMarked, { Renderer } from 'marked';
+import Axios from 'axios';
 import * as Article from './test.md';
 
 class Page4 extends Component {
@@ -19,12 +21,21 @@ class Page4 extends Component {
         });
     }
 
+    getArticle () {
+        Axios.get('/article/test').then((res) => {
+            let {errno, errmsg, data} = res.data;
+            this.setState({
+                code: myMarked(data)
+            })
+        });
+    }
+
     componentDidMount () {
         highlightjs.initHighlightingOnLoad();
         myMarked.setOptions({
             renderer: new myMarked.Renderer(),
             highlight: function(code) {
-              return require('highlight.js').highlightAuto(code).value;
+              return require('highlight.js').highlightAuto(code, ['javascript']).value;
             },
             pedantic: false,
             gfm: true,
@@ -36,6 +47,7 @@ class Page4 extends Component {
             xhtml: false
           });
         this.setHtml();
+        this.getArticle();
     }   
 
     render () {

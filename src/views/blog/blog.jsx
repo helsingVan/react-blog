@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ArticleList from '../../components/listitem/article-list';
 
-import './style.sass';
+import './style.css';
 
 class Page2 extends Component {
     constructor (props) {
