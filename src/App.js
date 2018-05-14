@@ -22,6 +22,7 @@ class App extends Component {
     }
   }
 
+
   render() {
     const Routes = this.state.nav.map((item) => {
       return <Route key={item.i} path={item.url} component={item.component} exact={item.exact}></Route>;
