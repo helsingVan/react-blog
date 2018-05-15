@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ArticleList from '../../components/listitem/article-list';
 
 import './style.css';
+import './test.sass';
 
 class Page2 extends Component {
     constructor (props) {
@@ -39,7 +40,7 @@ class Page2 extends Component {
         ));
         return (
             <div className="blog-container">
-                <section className="article-list-container">
+                <section className="article-list-container test">
                     {ArticleLists}
                 </section>
                 <aside className="aside"></aside>
