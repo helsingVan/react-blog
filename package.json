@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd-mobile": "^2.2.5",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
@@ -14,8 +15,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -29,6 +30,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.9.4"
+    "babel-plugin-import": "^1.10.0",
+    "node-sass": "^4.9.4",
+    "react-app-rewired": "^1.6.2"
   }
 }
