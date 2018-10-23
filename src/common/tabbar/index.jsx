@@ -11,11 +11,11 @@ class MainTabBar extends Component {
         }
     }
     render () {
-        const { tabList } = this.state;
+        const { children } = this.state.tabList[0];
         return (
             <nav className="main-tabbar">
                 {
-                    tabList.map(item => (
+                    children.map(item => (
                         <NavLink 
                             key={item.id}
                             to={item.path}

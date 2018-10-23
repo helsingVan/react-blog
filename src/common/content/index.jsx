@@ -12,11 +12,11 @@ class MainContent extends Component {
         };
     }
     render () {
-        const { routerList } = this.state;
+        const { children } = this.state.routerList[0];
         return (
             <div className="main-content">
                 {
-                    routerList.map(item => (
+                    children.map(item => (
                         <Route
                             key={item.id}
                             path={item.path}
