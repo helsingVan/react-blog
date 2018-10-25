@@ -18,6 +18,7 @@ class CarouselModal extends Component {
         console.log(e);
         this.props.hideCarouselModal();
     }
+    
 
     render () {
         const {
