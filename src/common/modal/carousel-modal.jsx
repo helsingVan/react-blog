@@ -25,7 +25,7 @@ class CarouselModal extends Component {
             data
         } = this.props.carouselModal;
         
-        
+        // test
         return (
             show ? 
             <Fragment>
