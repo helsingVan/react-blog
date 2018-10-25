@@ -51,6 +51,56 @@ const photoWeiboList = [
     }
 ];
 
+const normalWeiboList = [
+    {
+        time: '2018-01-01',
+        content: '内容这是内容香瓜那内容司法所地方水电费是否都是发',
+        imgList: [
+            'http://www.fanguangcn.cn/static/birdnest/34-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/32-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/30-mic.jpg'
+        ]
+    },
+    {
+        time: '2018-01-01',
+        content: '内容这是内容香瓜那内容司法所地方水电费是否都是发',
+        imgList: [
+            'http://www.fanguangcn.cn/static/birdnest/34-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/32-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/30-mic.jpg'
+        ]
+    },
+    {
+        time: '2018-01-01',
+        content: '内容这是内容香瓜那内容司法所地方水电费是否都是发',
+        imgList: [
+            'http://www.fanguangcn.cn/static/birdnest/34-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/32-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/30-mic.jpg'
+        ]
+    },
+    {
+        time: '2018-01-01',
+        content: '内容这是内容香瓜那内容司法所地方水电费是否都是发',
+        imgList: [
+            'http://www.fanguangcn.cn/static/birdnest/34-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/32-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/30-mic.jpg'
+        ]
+    },
+    {
+        time: '2018-01-01',
+        content: '内容这是内容香瓜那内容司法所地方水电费是否都是发',
+        imgList: [
+            'http://www.fanguangcn.cn/static/birdnest/34-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/32-mic.jpg',
+            'http://www.fanguangcn.cn/static/birdnest/30-mic.jpg'
+        ]
+    }
+]
+
+
 export default {
-    photoWeiboList
+    photoWeiboList,
+    normalWeiboList
 };
